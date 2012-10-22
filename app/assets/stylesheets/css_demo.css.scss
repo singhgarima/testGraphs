@@ -1,0 +1,117 @@
+$todo_dark: #F1433F;
+$todo_light: #F98E84;
+
+$done_dark: #98FB94;
+$done_light: #98FB94;
+
+$undecided_dark: #F7E967;
+$undecided_light: #F7E967;
+
+$circle: 50px;
+$circle_pad: 25px;
+
+
+$circle_border: 2px;
+
+.css_demo {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .tree ul {
+    padding-top: 20px; position: relative;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+
+  .tree li {
+    float: left; text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+
+
+  .tree li::before, .tree li::after{
+    content: '';
+    position: absolute; top: 0; right: 50%;
+    border-top: 1px solid #ccc;
+    width: 50%; height: 20px;
+  }
+  .tree li::after{
+    right: auto; left: 50%;
+    border-left: 1px solid #ccc;
+  }
+
+  .tree li:only-child::after, .tree li:only-child::before {
+    display: none;
+  }
+
+  .tree li:only-child{ padding-top: 0;}
+
+  .tree li:first-child::before, .tree li:last-child::after{
+    border: 0 none;
+  }
+
+  .tree li:last-child::before{
+    border-right: 1px solid #ccc;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+  }
+  .tree li:first-child::after{
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+  }
+
+  .tree ul ul::before{
+    content: '';
+    position: absolute; top: 0; left: 50%;
+    border-left: 1px solid #ccc;
+    width: 0; height: 20px;
+  }
+
+  .tree li a{
+    border: $circle_border solid $todo_dark;
+    background-color: $todo_light;
+    text-decoration: none;
+    padding: $circle_pad;
+    color: $todo_dark;
+    font-family: arial, verdana, tahoma;
+    font-size: 16px;
+    font-weight: bolder;
+    display: inline-block;
+
+    width: $circle;
+    height: $circle;
+    border-radius: $circle;
+    -webkit-border-radius: $circle;
+    -moz-border-radius: $circle;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+  }
+
+  .tree li a:hover, .tree li a:hover+ul li a {
+    background: #c8e4f8;
+    color: #000;
+    border: $circle_border solid #94a0b4;
+  }
+
+  .tree li a:hover+ul li::after,
+  .tree li a:hover+ul li::before,
+  .tree li a:hover+ul::before,
+  .tree li a:hover+ul ul::before{
+    border-color:  #94a0b4;
+  }
+
+}
